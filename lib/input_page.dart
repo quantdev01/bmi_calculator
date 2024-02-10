@@ -38,6 +38,7 @@ class _InputPageState extends State<InputPage> {
             ],
           ),
         ),
+        //Readme
         Expanded(
           child: NewWidget(
             myColor: Color(0xff1d1e33),
