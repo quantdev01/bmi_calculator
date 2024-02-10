@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 class InputPage extends StatefulWidget {
@@ -11,72 +13,72 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('BMI CALCULATOR'),
-          centerTitle: true,
-        ),
         body: Column(
-          children: [
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: const Color(0xff1d1e33),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: const Color(0xff1d1e33),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                ],
+      children: [
+        SizedBox(height: 50),
+        Text(
+          'BMI CALCULATOR',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(height: 10),
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(
+                child: NewWidget(myColor: Color(0xff1d1e33)),
               ),
-            ),
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: const Color(0xff1d1e33),
-                  borderRadius: BorderRadius.circular(10),
+              Expanded(
+                child: NewWidget(
+                  myColor: Color(0xff1d1e33),
                 ),
               ),
-            ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: const Color(0xff1d1e33),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: const Color(0xff1d1e33),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                ],
+            ],
+          ),
+        ),
+        Expanded(
+          child: NewWidget(
+            myColor: Color(0xff1d1e33),
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: NewWidget(
+                  myColor: Color(0xff1d1e33),
+                ),
               ),
-            ),
-          ],
-        ));
+              Expanded(
+                flex: 1,
+                child: NewWidget(
+                  myColor: Color(0xff1d1e33),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ));
+  }
+}
+
+class NewWidget extends StatelessWidget {
+  final Color myColor;
+
+  const NewWidget({super.key, required this.myColor});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: myColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
+    );
   }
 }
