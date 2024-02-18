@@ -81,9 +81,14 @@ class _InputPageState extends State<InputPage> {
 }
 
 class NewWidget extends StatelessWidget {
-  final Color myColor;
+  const NewWidget({
+    super.key,
+    required this.myColor,
+    this.cardChild,
+  });
 
-  const NewWidget({super.key, required this.myColor});
+  final Color myColor;
+  final Widget cardChild;
 
   @override
   Widget build(BuildContext context) {
