@@ -32,38 +32,28 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: NewWidget(
-                    myColor: constCardColor,
-                  ),
+                  child: NewWidget(constCardColor, Text("Text")),
                 ),
                 Expanded(
-                  child: NewWidget(
-                    myColor: constCardColor,
-                  ),
+                  child: NewWidget(constCardColor, Text("My widget")),
                 ),
               ],
             ),
           ),
           //Readme
           Expanded(
-            child: NewWidget(
-              myColor: constCardColor,
-            ),
+            child: NewWidget(constCardColor, Text("Text 3")),
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
                   flex: 1,
-                  child: NewWidget(
-                    myColor: constCardColor,
-                  ),
+                  child: NewWidget(constCardColor, Text("Child")),
                 ),
                 Expanded(
                   flex: 1,
-                  child: NewWidget(
-                    myColor: constCardColor,
-                  ),
+                  child: NewWidget(constCardColor, Text("Home")),
                 ),
               ],
             ),
@@ -81,11 +71,10 @@ class _InputPageState extends State<InputPage> {
 }
 
 class NewWidget extends StatelessWidget {
-  const NewWidget({
-    super.key,
-    required this.myColor,
+  const NewWidget(
+    this.myColor,
     this.cardChild,
-  });
+  );
 
   final Color myColor;
   final Widget cardChild;
