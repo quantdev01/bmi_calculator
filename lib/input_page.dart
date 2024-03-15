@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'input_content.dart';
+import 'reusable_widget.dart';
 
 const bottomBarHeight = 80.0;
 const constCardColor = Color(0xff1d1e33);
@@ -32,28 +35,49 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: NewWidget(constCardColor, Text("Text")),
+                  child: ReusableCard(
+                    myColor: constCardColor,
+                    cardChild: InputContent(
+                      icon: FontAwesomeIcons.mars,
+                      maleFemaleText: "MALE",
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: NewWidget(constCardColor, Text("My widget")),
+                  child: ReusableCard(
+                    myColor: constCardColor,
+                    cardChild: InputContent(
+                      icon: FontAwesomeIcons.venus,
+                      maleFemaleText: "FEMALE",
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
           //Readme
           Expanded(
-            child: NewWidget(constCardColor, Text("Text 3")),
+            child: ReusableCard(
+              myColor: constCardColor,
+              cardChild: Text("Text 3"),
+            ),
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
                   flex: 1,
-                  child: NewWidget(constCardColor, Text("Child")),
+                  child: ReusableCard(
+                    myColor: constCardColor,
+                    cardChild: Text("Child"),
+                  ),
                 ),
                 Expanded(
                   flex: 1,
-                  child: NewWidget(constCardColor, Text("Home")),
+                  child: ReusableCard(
+                    myColor: constCardColor,
+                    cardChild: Text("Home"),
+                  ),
                 ),
               ],
             ),
@@ -65,27 +89,6 @@ class _InputPageState extends State<InputPage> {
             height: bottomBarHeight,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class NewWidget extends StatelessWidget {
-  const NewWidget(
-    this.myColor,
-    this.cardChild,
-  );
-
-  final Color myColor;
-  final Widget cardChild;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: myColor,
-        borderRadius: BorderRadius.circular(10),
       ),
     );
   }
