@@ -1,9 +1,5 @@
+import 'package:bmi_calculator_app/constants.dart';
 import 'package:flutter/material.dart';
-
-const textStyle = TextStyle(
-  color: Color(0xff8d8e98),
-  fontSize: 18,
-);
 
 class InputContent extends StatelessWidget {
   const InputContent({
@@ -28,7 +24,7 @@ class InputContent extends StatelessWidget {
         const SizedBox(height: 15),
         Text(
           maleFemaleText,
-          style: textStyle,
+          style: kTextStyle,
         )
       ],
     );

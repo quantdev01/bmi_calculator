@@ -1,14 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:bmi_calculator_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'input_content.dart';
 import 'reusable_widget.dart';
-
-const bottomBarHeight = 80.0;
-const activeColor = Color(0xff1d1e33);
-const inactiveColor = Color(0xff111328);
-const bottomBarColor = Color(0xFFEB1555);
 
 enum CardGender {
   male,
@@ -25,6 +21,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   CardGender gender = CardGender.none;
+  int height = 130;
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +42,10 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    onPress: () {
-                      gender = CardGender.male;
-                    },
-                    myColor:
-                        gender == CardGender.male ? activeColor : inactiveColor,
+                    onPress: () => gender = CardGender.male,
+                    myColor: gender == CardGender.male
+                        ? kActiveColor
+                        : kInactiveColor,
                     cardChild: InputContent(
                       icon: FontAwesomeIcons.mars,
                       maleFemaleText: "MALE",
@@ -62,8 +58,8 @@ class _InputPageState extends State<InputPage> {
                       gender = CardGender.female;
                     },
                     myColor: gender == CardGender.female
-                        ? activeColor
-                        : inactiveColor,
+                        ? kActiveColor
+                        : kInactiveColor,
                     cardChild: InputContent(
                       icon: FontAwesomeIcons.venus,
                       maleFemaleText: "FEMALE",
@@ -76,8 +72,43 @@ class _InputPageState extends State<InputPage> {
           //Readme
           Expanded(
             child: ReusableCard(
-              myColor: activeColor,
-              cardChild: Text("Text 3"),
+              myColor: kActiveColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "HEIGHT",
+                    style: kTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        height.toString(),
+                        style: kNumbersTextStyle,
+                      ),
+                      Text(
+                        'cm',
+                        style: kTextStyle,
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    value: height.toDouble(),
+                    onChanged: (double changedHeight) {
+                      setState(() {
+                        height = changedHeight.toInt();
+                      });
+                    },
+                    activeColor: Color(0xffeb1555),
+                    inactiveColor: Color(0xff8d8e98),
+                    min: kMinHeight,
+                    max: kMaxHeight,
+                  ),
+                ],
+              ),
               onPress: () {},
             ),
           ),
@@ -88,14 +119,14 @@ class _InputPageState extends State<InputPage> {
                   flex: 1,
                   child: ReusableCard(
                     onPress: () {},
-                    myColor: activeColor,
+                    myColor: kActiveColor,
                     cardChild: Text("Child"),
                   ),
                 ),
                 Expanded(
                   flex: 1,
                   child: ReusableCard(
-                    myColor: activeColor,
+                    myColor: kActiveColor,
                     cardChild: Text("Home"),
                     onPress: () {},
                   ),
@@ -104,10 +135,10 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            color: bottomBarColor,
+            color: kBottomBarColor,
             margin: EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: bottomBarHeight,
+            height: kBottomBarHeight,
           ),
         ],
       ),
