@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:bmi_calculator_app/constants.dart';
+import 'package:bmi_calculator_app/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'input_content.dart';
@@ -44,7 +45,11 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    onPress: () => gender = CardGender.male,
+                    onPress: () {
+                      setState(() {
+                        gender = CardGender.male;
+                      });
+                    },
                     myColor: gender == CardGender.male
                         ? kActiveColor
                         : kInactiveColor,
@@ -57,7 +62,9 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     onPress: () {
-                      gender = CardGender.female;
+                      setState(() {
+                        gender = CardGender.female;
+                      });
                     },
                     myColor: gender == CardGender.female
                         ? kActiveColor
@@ -213,11 +220,24 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kBottomBarColor,
-            margin: EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: 50,
+          GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(),
+                )),
+            child: Container(
+              color: kBottomBarColor,
+              margin: EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: kBottomBarHeight,
+              child: Center(
+                child: Text(
+                  "CALCULATE",
+                  style: kTextStyleBottom,
+                ),
+              ),
+            ),
           ),
         ],
       ),

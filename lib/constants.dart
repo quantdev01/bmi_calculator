@@ -11,6 +11,12 @@ const kTextStyle = TextStyle(
   fontSize: 18,
 );
 
+const kTextStyleBottom = TextStyle(
+  color: Colors.white,
+  fontSize: 28,
+  fontWeight: FontWeight.bold,
+);
+
 const kNumbersTextStyle = TextStyle(
   fontSize: 50,
   fontWeight: FontWeight.w900,
