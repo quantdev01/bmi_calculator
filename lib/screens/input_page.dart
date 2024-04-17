@@ -1,11 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:bmi_calculator_app/components/botton_button.dart';
+import 'package:bmi_calculator_app/components/custom_button_plus.dart';
 import 'package:bmi_calculator_app/constants.dart';
-import 'package:bmi_calculator_app/result_page.dart';
+import 'package:bmi_calculator_app/components/input_content.dart';
+import 'package:bmi_calculator_app/components/reusable_widget.dart';
+import 'package:bmi_calculator_app/screens/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'input_content.dart';
-import 'reusable_widget.dart';
 
 enum CardGender {
   male,
@@ -22,10 +24,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   CardGender gender = CardGender.none;
+  int age = 12;
   int height = 130;
   int weight = 60;
-  int age = 12;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -226,38 +227,10 @@ class _InputPageState extends State<InputPage> {
                 MaterialPageRoute(
                   builder: (context) => ResultPage(),
                 )),
-            child: Container(
-              color: kBottomBarColor,
-              margin: EdgeInsets.only(top: 10),
-              width: double.infinity,
-              height: kBottomBarHeight,
-              child: Center(
-                child: Text(
-                  "CALCULATE",
-                  style: kTextStyleBottom,
-                ),
-              ),
-            ),
+            child: bottomButton(text: "CALCULATE"),
           ),
         ],
       ),
     );
   }
-}
-
-RawMaterialButton roundedButton({
-  required IconData icon,
-  required Function setWeight,
-}) {
-  return RawMaterialButton(
-    onPressed: () => setWeight(),
-    constraints: BoxConstraints.expand(
-      height: 56,
-      width: 56,
-    ),
-    fillColor: kPlusMoinButtonColor,
-    shape: CircleBorder(),
-    elevation: 0,
-    child: Icon(icon),
-  );
 }

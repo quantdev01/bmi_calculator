@@ -13,8 +13,30 @@ const kTextStyle = TextStyle(
 
 const kTextStyleBottom = TextStyle(
   color: Colors.white,
-  fontSize: 28,
+  fontSize: 25,
   fontWeight: FontWeight.bold,
+);
+
+const kTextResult = TextStyle(
+  color: Colors.white,
+  fontSize: 100,
+  fontWeight: FontWeight.bold,
+);
+
+const kLongTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 18,
+);
+
+const kYourResultStyle = TextStyle(
+  fontSize: 50,
+  fontWeight: FontWeight.bold,
+);
+
+const kWeightText = TextStyle(
+  color: Colors.green,
+  fontWeight: FontWeight.bold,
+  fontSize: 20,
 );
 
 const kNumbersTextStyle = TextStyle(
