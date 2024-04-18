@@ -4,6 +4,7 @@ const kBottomBarHeight = 80.0;
 const kActiveColor = Color(0xff1d1e33);
 const kInactiveColor = Color(0xff111328);
 const kBottomBarColor = Color(0xFFEB1555);
+const kActiveGender = Color.fromARGB(134, 235, 21, 85);
 const kPlusMoinButtonColor = Color(0xff4c4f5e);
 
 const kTextStyle = TextStyle(

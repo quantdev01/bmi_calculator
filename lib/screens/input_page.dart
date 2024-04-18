@@ -53,7 +53,7 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     myColor: gender == CardGender.male
-                        ? kActiveColor
+                        ? kActiveGender
                         : kInactiveColor,
                     cardChild: InputContent(
                       icon: FontAwesomeIcons.mars,
@@ -69,7 +69,7 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     myColor: gender == CardGender.female
-                        ? kActiveColor
+                        ? kActiveGender
                         : kInactiveColor,
                     cardChild: InputContent(
                       icon: FontAwesomeIcons.venus,
