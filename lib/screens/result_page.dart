@@ -5,7 +5,16 @@ import 'package:bmi_calculator_app/screens/input_page.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  const ResultPage({
+    super.key,
+    required this.infoText,
+    required this.resultCalculation,
+    required this.indicationsText,
+  });
+
+  final String infoText;
+  final String resultCalculation;
+  final String indicationsText;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +26,10 @@ class ResultPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 15, top: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, top: 20),
             child: Text(
-              'Your Result',
+              "Your Result",
               textAlign: TextAlign.left,
               style: kYourResultStyle,
             ),
@@ -29,21 +38,21 @@ class ResultPage extends StatelessWidget {
             child: ReusableCard(
               onPress: () {},
               myColor: kInactiveColor,
-              cardChild: const Column(
+              cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "OVERWEIGHT",
+                    infoText.toUpperCase(),
                     style: kWeightText,
                   ),
                   Text(
-                    "28.4",
+                    resultCalculation,
                     style: kTextResult,
                   ),
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "You have a certain amount of weight you need to exercise more",
+                      indicationsText,
                       style: kLongTextStyle,
                       textAlign: TextAlign.center,
                     ),

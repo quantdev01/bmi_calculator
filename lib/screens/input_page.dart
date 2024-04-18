@@ -5,6 +5,7 @@ import 'package:bmi_calculator_app/components/custom_button_plus.dart';
 import 'package:bmi_calculator_app/constants.dart';
 import 'package:bmi_calculator_app/components/input_content.dart';
 import 'package:bmi_calculator_app/components/reusable_widget.dart';
+import 'package:bmi_calculator_app/logic/bmi_brain.dart';
 import 'package:bmi_calculator_app/screens/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -222,11 +223,21 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           GestureDetector(
-            onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultPage(),
-                )),
+            onTap: () {
+              BmiBrain calculation = BmiBrain(
+                height: height,
+                weight: weight,
+              );
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultPage(
+                      infoText: calculation.getResult(),
+                      resultCalculation: calculation.bmi_result(),
+                      indicationsText: calculation.getInterpretation(),
+                    ),
+                  ));
+            },
             child: bottomButton(text: "CALCULATE"),
           ),
         ],
