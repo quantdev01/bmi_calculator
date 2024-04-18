@@ -7,12 +7,12 @@ RawMaterialButton roundedButton({
 }) {
   return RawMaterialButton(
     onPressed: () => setWeight(),
-    constraints: BoxConstraints.expand(
+    constraints: const BoxConstraints.expand(
       height: 56,
       width: 56,
     ),
     fillColor: kPlusMoinButtonColor,
-    shape: CircleBorder(),
+    shape: const CircleBorder(),
     elevation: 0,
     child: Icon(icon),
   );

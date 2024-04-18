@@ -26,8 +26,8 @@ class ResultPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 15, top: 20),
+          const Padding(
+            padding: EdgeInsets.only(left: 15, top: 20),
             child: Text(
               "Your Result",
               textAlign: TextAlign.left,
