@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:bmi_calculator_app/components/botton_button.dart';
-import 'package:bmi_calculator_app/components/custom_button_plus.dart';
-import 'package:bmi_calculator_app/constants.dart';
-import 'package:bmi_calculator_app/components/input_content.dart';
-import 'package:bmi_calculator_app/components/reusable_widget.dart';
-import 'package:bmi_calculator_app/logic/bmi_brain.dart';
-import 'package:bmi_calculator_app/screens/result_page.dart';
+import 'package:bmi/components/botton_button.dart';
+import 'package:bmi/components/custom_button_plus.dart';
+import 'package:bmi/components/input_content.dart';
+import 'package:bmi/components/reusable_widget.dart';
+import 'package:bmi/constants.dart';
+import 'package:bmi/logic/bmi_brain.dart';
+import 'package:bmi/screens/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
